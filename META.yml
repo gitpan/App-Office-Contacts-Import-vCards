@@ -7,7 +7,7 @@ build_requires:
   Test::Pod: 0
 configure_requires:
   Module::Build: 0.36
-generated_by: 'Module::Build version 0.3601'
+generated_by: 'Module::Build version 0.3603'
 license: artistic
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,28 +16,28 @@ name: App-Office-Contacts-Import-vCards
 provides:
   App::Office::Contacts::Import::vCards:
     file: lib/App/Office/Contacts/Import/vCards.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::Controller:
     file: lib/App/Office/Contacts/Import/vCards/Controller.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::Controller::Import:
     file: lib/App/Office/Contacts/Import/vCards/Controller/Import.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::Controller::Initialize:
     file: lib/App/Office/Contacts/Import/vCards/Controller/Initialize.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::Util::Config:
     file: lib/App/Office/Contacts/Import/vCards/Util/Config.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::Util::vCards:
     file: lib/App/Office/Contacts/Import/vCards/Util/vCards.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::View:
     file: lib/App/Office/Contacts/Import/vCards/View.pm
-    version: 1.02
+    version: 1.04
   App::Office::Contacts::Import::vCards::View::vCards:
     file: lib/App/Office/Contacts/Import/vCards/View/vCards.pm
-    version: 1.02
+    version: 1.04
 requires:
   App::Office::Contacts: 0
   Text::DoubleMetaphone: 0
@@ -48,4 +48,4 @@ requires:
   XML::SAX::ParserFactory: 0
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: 1.02
+version: 1.04

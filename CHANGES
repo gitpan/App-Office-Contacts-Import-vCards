@@ -1,5 +1,18 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.04  Sun Feb 21 12:54:17 2010
+	- Remove text 'All rights reserved' (for Debian licensing).
+	- Remove POD heads 'Required Modules' and 'Changes'.
+	- Replace personal doc root with /var/www.
+	- Use namespace::autoclean with Moose.
+
+1.03  Fri Feb  5 17:27:00 2010
+	- Remove personal use lib from CGI scripts.
+	- Change .../cgi/... to .../app/... in dirs and config file.
+	- Add css_url to .htoffice.import.vcards.conf
+	- Rename Initialize.about to build_about_html to match App::O::C.
+	- Add setting css_url to Initialize.display.
+
 1.02  Fri Jan 29 09:52:00 2010
 	- Change namespace from CGI::Office::* to App::Office::* after discussion with Matt Trout
 

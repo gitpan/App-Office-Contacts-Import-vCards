@@ -6,11 +6,11 @@ use warnings;
 
 # We don't use Moose because we isa CGI::Application.
 
-our $VERSION = '1.02';
+our $VERSION = '1.04';
 
 # -----------------------------------------------
 
-sub about
+sub build_about_html
 {
 	my($self, $user_id) = @_;
 
@@ -37,7 +37,7 @@ sub about
 
 	return $template;
 
-} # End of about.
+} # End of build_about_html.
 
 # -----------------------------------------------
 
@@ -47,7 +47,7 @@ sub build_head_init
 
 	$self -> log(debug => 'Entered build_head_init');
 
-	my($about)              = $self -> about;
+	my($about)              = $self -> build_about_html;
 	my($import_vcards_form) = $self -> param('view') -> viewer -> build_import_vcards_form;
 
 	# These things are called by YAHOO.util.Event.onDOMReady(init).
@@ -123,6 +123,7 @@ sub display
 
 	my($page) = $self -> load_tmpl('web.page.tmpl');
 
+	$page -> param(css_url   => ${$self -> param('config')}{'css_url'});
 	$page -> param(head_init => $self -> build_head_init);
 	$page -> param(head_js   => $self -> build_head_js);
 	$page -> param(yui_url   => ${$self -> param('config')}{'yui_url'});
