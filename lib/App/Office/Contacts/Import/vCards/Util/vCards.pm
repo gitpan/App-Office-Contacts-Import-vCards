@@ -23,7 +23,7 @@ has xml         => (is => 'rw', isa => 'Str');
 
 use namespace::autoclean;
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 

@@ -1,6 +1,6 @@
 package App::Office::Contacts::Import::vCards::Controller;
 
-use base 'App::Office::Contacts';
+use parent 'App::Office::Contacts';
 use strict;
 use warnings;
 
@@ -10,7 +10,7 @@ use App::Office::Contacts::Import::vCards::View;
 
 use Log::Dispatch;
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 
@@ -18,7 +18,7 @@ sub cgiapp_prerun
 {
 	my($self) = @_;
 
-	# Outputs nothing, since logger not yet set up.
+	# Can't call, since logger not yet set up.
 	#$self -> log(debug => 'Entered cgiapp_prerun');
 
 	$self -> param(config => App::Office::Contacts::Import::vCards::Util::Config -> new -> config);
@@ -29,11 +29,7 @@ sub cgiapp_prerun
 
 	# Set up the database.
 
-	$self -> param(db => App::Office::Contacts::Database -> new
-	(
-		config => $self -> param('config'),
-		logger => $self -> param('logger'),
-	) );
+	$self -> param(db => App::Office::Contacts::Database -> new);
 
 	# Set up the things shared by:
 	# o App::Office::Contacts
@@ -46,12 +42,15 @@ sub cgiapp_prerun
 
 	$self -> param(view => App::Office::Contacts::Import::vCards::View -> new
 	(
-		config    => $self -> param('config'),
 		db        => $self -> param('db'),
-		logger    => $self -> param('logger'),
 		session   => $self -> param('session'),
 		tmpl_path => $self -> tmpl_path,
 	) );
+
+	if ($self -> validate_post == 0)
+	{
+		$self -> prerun_mode('Initialize');
+	}
 
 } # End of cgiapp_prerun.
 

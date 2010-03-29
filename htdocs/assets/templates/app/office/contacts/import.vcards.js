@@ -44,10 +44,10 @@ function import_vcards()
 	// WTF: YUI zaps the path info if it's just in the asyncRequest stmt.
 
 	var f = document.getElementById("import_vcards_form");
-	f.action  = "<tmpl_var name=import_vcards_form_action>/import";
+	f.action  = "<tmpl_var name=form_action>/import";
 	var p = YAHOO.util.Connect.setForm(f, true);
 	var r = YAHOO.util.Connect.asyncRequest('POST',
-		"<tmpl_var name=import_vcards_form_action>/import", import_vcards_callback);
+		"<tmpl_var name=form_action>/import", import_vcards_callback);
 
 	return false;
 }

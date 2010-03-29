@@ -24,13 +24,15 @@ WriteMakefile
  PL_FILES  => {},
  PREREQ_PM =>
  {
-	 App::Office::Contacts   => 0,
-	 Text::DoubleMetaphone   => 0,
-	 Text::GenderFromName    => 0,
-	 Text::vFile::toXML      => 0, # For importing vCards.
-	 XML::Handler::YAWriter  => 0, # For xmlpretty.
-	 XML::SAX::Base          => 0,
-	 XML::SAX::ParserFactory => 0,
+	App::Office::Contacts   => 0,
+	Moose                   => 0.98,
+	namespace::autoclean    => 0.09,
+	Text::DoubleMetaphone   => 0,
+	Text::GenderFromName    => 0,
+	Text::vFile::toXML      => 0, # For importing vCards.
+	XML::Handler::YAWriter  => 0, # For xmlpretty.
+	XML::SAX::Base          => 0,
+	XML::SAX::ParserFactory => 0,
  },
  VERSION_FROM	=> 'lib/CGI/Office/Contacts/Import/vCards.pm',
 );

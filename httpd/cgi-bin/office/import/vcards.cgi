@@ -11,11 +11,9 @@ use CGI::Application::Dispatch;
 
 # ---------------------
 
-my($cgi) = CGI -> new;
-
 CGI::Application::Dispatch -> dispatch
 (
- args_to_new => {QUERY => $cgi},
+ args_to_new => {QUERY => CGI -> new},
  prefix      => 'App::Office::Contacts::Import::vCards::Controller',
  table       =>
  [

@@ -1,12 +1,12 @@
 package App::Office::Contacts::Import::vCards::Controller::Initialize;
 
-use base 'App::Office::Contacts::Import::vCards::Controller';
+use parent 'App::Office::Contacts::Import::vCards::Controller';
 use strict;
 use warnings;
 
 # We don't use Moose because we isa CGI::Application.
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 

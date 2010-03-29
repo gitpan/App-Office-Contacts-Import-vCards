@@ -8,7 +8,7 @@ extends 'App::Office::Contacts::View::Base';
 
 use namespace::autoclean;
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 
@@ -50,7 +50,7 @@ sub build_import_vcards_js
 
 	my($js) = $self -> load_tmpl('import.vcards.js');
 
-	$js -> param(import_vcards_form_action => ${$self -> config}{'import_vcards_form_action'});
+	$js -> param(form_action => $self -> script_name);
 
 	return $js -> output;
 

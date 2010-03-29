@@ -3,7 +3,7 @@ package App::Office::Contacts::Import::vCards;
 use strict;
 use warnings;
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 
@@ -15,7 +15,7 @@ C<App::Office::Contacts::Import::vCards> - Import vCards for use by App::Office:
 
 =head1 Synopsis
 
-The scripts discussed here, I<vcards.cgi> and I<vcards>, are shipped with this module.
+The scripts discussed here, I<vcards.cgi> and I<vcards.psgi>, are shipped with this module.
 
 A classic CGI script, I<vcards.cgi>:
 
@@ -35,47 +35,45 @@ A classic CGI script, I<vcards.cgi>:
 		prefix      => 'App::Office::Contacts::Import::vCards::Controller',
 		table       =>
 		[
-		''         => {app => 'Initialize', rm => 'display'},
-		':app'     => {rm => 'display'},
-		':app/:rm' => {},
+		''              => {app => 'Initialize', rm => 'display'},
+		':app'          => {rm => 'display'},
+		':app/:rm/:id?' => {},
 		],
 	);
 
-A fancy FCGI script, I<vcards>:
+A L<Plack> script, I<vcards.psgi>:
+
+	#!/usr/bin/perl
 
 	use strict;
 	use warnings;
 
-	use CGI::Application::Dispatch;
-	use CGI::Fast;
-	use FCGI::ProcManager;
+	use CGI::Application::Dispatch::PSGI;
+
+	use Plack::Builder;
 
 	# ---------------------
 
-	my($proc_manager) = FCGI::ProcManager -> new({processes => 2});
+	my($app) = CGI::Application::Dispatch -> as_psgi
+	(
+		prefix => 'App::Office::Contacts::Import::vCards::Controller',
+		table  =>
+		[
+		''              => {app => 'Initialize', rm => 'display'},
+		':app'          => {rm => 'display'},
+		':app/:rm/:id?' => {},
+		],
+	);
 
-	$proc_manager -> pm_manage;
+	builder
+{
+		enable "Plack::Middleware::Static",
+		path => qr!^/(assets|yui)/!,
+		root => '/var/www';
+		$app;
+	};
 
-	my($cgi);
-
-	while ($cgi = CGI::Fast -> new)
-	{
-		$proc_manager -> pm_pre_dispatch();
-
-		CGI::Application::Dispatch -> dispatch
-		(
-		 args_to_new => {QUERY => $cgi},
-		 prefix      => 'App::Office::Contacts::Import::vCards::Controller',
-		 table       =>
-		 [
-		  ''         => {app => 'Initialize', rm => 'display'},
-		  ':app'     => {rm => 'display'},
-		  ':app/:rm' => {},
-		 ],
-		);
-
-		$proc_manager -> pm_post_dispatch;
-	}
+For more on Plack, see L<My intro to Plack|http://savage.net.au/Perl/html/plack.for.beginners.html>.
 
 =head1 Description
 
@@ -96,10 +94,6 @@ The primary pre-requisite is C<App::Office::Contacts>. You should study the docu
 module before proceeding.
 
 =head1 Installing the module
-
-Note: Neither I<Build.PL> nor I<Makefile.PL> refer to C<FCGI::ProcManager>.
-If you are only going to use the classic CGI script 'contacts.cgi',
-you don't need C<FCGI::ProcManager>.
 
 Install C<App::Office::Contacts::Import::vCards> as you would for any C<Perl> module:
 
@@ -127,32 +121,18 @@ Copy the distro's htdocs/assets/ directory to your web server's doc root.
 
 Specifically, my doc root is /var/www/, so I end up with /var/www/assets/.
 
-=head2 Install the trivial CGI script
+=head2 Install the trivial CGI script and the L<Plack> script
 
 Copy the distro's httpd/cgi-bin/office/ directory to your web server's cgi-bin/ directory,
-and make I<vacrds.cgi> executable.
+and make I<vcards.cgi> executable.
 
 So, I end up with /usr/lib/cgi-bin/office/import/vcards.cgi.
 
 Now I can run http://127.0.0.1/cgi-bin/office/import/vcards.cgi.
 
-=head2 Install the fancy FCGI script (optional)
-
-Copy the distro's htdocs/office/ directory to your web server's doc root,
-and make I<vcards> executable.
-
-So, I end up with /var/www/office/import/vcards.
-
-Now I can run http://127.0.0.1/office/import/vcards.
-
-For C<FCGID>, see http://fastcgi.coremail.cn/.
-
-C<FCGID> is a replacement for the older C<FastCGI>. For C<FastCGI>, see http://www.fastcgi.com/drupal/.
-
 =head2 Start testing
 
-Point your broswer at http://127.0.0.1/cgi-bin/import/vcards.cgi (trivial script), or
-http://127.0.0.1/office/import/vcards (fancy script).
+Point your broswer at http://127.0.0.1/cgi-bin/import/vcards.cgi (trivial script).
 
 =head1 FAQ
 

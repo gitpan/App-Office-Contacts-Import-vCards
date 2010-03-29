@@ -15,7 +15,7 @@ has viewer => (is => 'rw', isa => 'App::Office::Contacts::Import::vCards::View::
 
 use namespace::autoclean;
 
-our $VERSION = '1.04';
+our $VERSION = '1.05';
 
 # -----------------------------------------------
 
@@ -25,20 +25,18 @@ sub BUILD
 
 	$self -> person(App::Office::Contacts::View::Person -> new
 	(
-		config    => $self -> config,
-		db        => $self -> db,
-		logger    => $self -> logger,
-		session   => $self -> session,
-		tmpl_path => $self -> tmpl_path,
+		db          => $self -> db,
+		script_name => $self -> script_name,
+		session     => $self -> session,
+		tmpl_path   => $self -> tmpl_path,
 	) );
 
 	$self -> viewer(App::Office::Contacts::Import::vCards::View::vCards -> new
 	(
-		config    => $self -> config,
-		db        => $self -> db,
-		logger    => $self -> logger,
-		session   => $self -> session,
-		tmpl_path => $self -> tmpl_path,
+		db          => $self -> db,
+		script_name => $self -> script_name,
+		session     => $self -> session,
+		tmpl_path   => $self -> tmpl_path,
 	) );
 
 }	# End of BUILD.

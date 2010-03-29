@@ -3,8 +3,8 @@ Changelog.ini
 CHANGES
 htdocs/assets/templates/app/office/contacts/import.vcards.js
 htdocs/assets/templates/app/office/contacts/import.vcards.tmpl
-htdocs/office/import/vcards
 httpd/cgi-bin/office/import/vcards.cgi
+httpd/cgi-bin/office/import/vcards.psgi
 lib/App/Office/Contacts/Import/vCards.pm
 lib/App/Office/Contacts/Import/vCards/.htoffice.import.vcards.conf
 lib/App/Office/Contacts/Import/vCards/Controller.pm
