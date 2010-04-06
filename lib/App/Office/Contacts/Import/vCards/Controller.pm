@@ -10,7 +10,7 @@ use App::Office::Contacts::Import::vCards::View;
 
 use Log::Dispatch;
 
-our $VERSION = '1.05';
+our $VERSION = '1.07';
 
 # -----------------------------------------------
 

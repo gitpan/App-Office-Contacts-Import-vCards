@@ -6,7 +6,7 @@ use warnings;
 
 # We don't use Moose because we isa CGI::Application.
 
-our $VERSION = '1.05';
+our $VERSION = '1.07';
 
 # -----------------------------------------------
 

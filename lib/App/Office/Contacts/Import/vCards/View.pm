@@ -15,7 +15,7 @@ has viewer => (is => 'rw', isa => 'App::Office::Contacts::Import::vCards::View::
 
 use namespace::autoclean;
 
-our $VERSION = '1.05';
+our $VERSION = '1.07';
 
 # -----------------------------------------------
 

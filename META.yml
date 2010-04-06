@@ -3,8 +3,8 @@ abstract: 'Import vCards for use by App::Office::Contacts'
 author:
   - 'Ron Savage <ron@savage.net.au>'
 build_requires:
-  Test::More: 0
-  Test::Pod: 0
+  Test::Pod: 1.41
+  Test::Simple: 0.94
 configure_requires:
   Module::Build: 0.36
 generated_by: 'Module::Build version 0.3603'
@@ -16,30 +16,30 @@ name: App-Office-Contacts-Import-vCards
 provides:
   App::Office::Contacts::Import::vCards:
     file: lib/App/Office/Contacts/Import/vCards.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::Controller:
     file: lib/App/Office/Contacts/Import/vCards/Controller.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::Controller::Import:
     file: lib/App/Office/Contacts/Import/vCards/Controller/Import.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::Controller::Initialize:
     file: lib/App/Office/Contacts/Import/vCards/Controller/Initialize.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::Util::Config:
     file: lib/App/Office/Contacts/Import/vCards/Util/Config.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::Util::vCards:
     file: lib/App/Office/Contacts/Import/vCards/Util/vCards.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::View:
     file: lib/App/Office/Contacts/Import/vCards/View.pm
-    version: 1.05
+    version: 1.07
   App::Office::Contacts::Import::vCards::View::vCards:
     file: lib/App/Office/Contacts/Import/vCards/View/vCards.pm
-    version: 1.05
+    version: 1.07
 requires:
-  App::Office::Contacts: 0
+  App::Office::Contacts: 1.06
   Moose: 0.98
   Text::DoubleMetaphone: 0
   Text::GenderFromName: 0
@@ -50,4 +50,4 @@ requires:
   namespace::autoclean: 0.09
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: 1.05
+version: 1.07

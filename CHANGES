@@ -1,5 +1,16 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.07  Wed Apr  7  8:51:00 2010
+	- Update pre-reqs for Test::Pod to 1.41 to avoid Test::Pod's dithering
+		about a POD construct I used: L<text|scheme:...>, which makes a test fail.
+		See comments for V 1.40 and 1.41 at:
+		http://cpansearch.perl.org/src/DWHEELER/Test-Pod-1.42/Changes
+	- Update pre-reqs from Test::More V 0 to Test::Simple 0.94.
+
+1.06  Tue Mar 30 12:45:00 2010
+	- Set pre-reqs version of App::Office::Contacts to 1.06.
+		This is in Build.PL and Makefile.PL.
+
 1.05  Tue Mar  2  9:28:00 2010
 	- In cgiapp_prerun():
 		o Only accept CGI params if the request method is 'POST'.
