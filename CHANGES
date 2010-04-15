@@ -1,5 +1,9 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.08  Thu Apr 15 14:40:00 2010
+	- Add script_name to calling parameter list of App::Office::Contacts::Import::vCards::View
+		after changes to App::Office::Contacts::View.
+
 1.07  Wed Apr  7  8:51:00 2010
 	- Update pre-reqs for Test::Pod to 1.41 to avoid Test::Pod's dithering
 		about a POD construct I used: L<text|scheme:...>, which makes a test fail.

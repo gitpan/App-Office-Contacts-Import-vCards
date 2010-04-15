@@ -16,28 +16,28 @@ name: App-Office-Contacts-Import-vCards
 provides:
   App::Office::Contacts::Import::vCards:
     file: lib/App/Office/Contacts/Import/vCards.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::Controller:
     file: lib/App/Office/Contacts/Import/vCards/Controller.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::Controller::Import:
     file: lib/App/Office/Contacts/Import/vCards/Controller/Import.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::Controller::Initialize:
     file: lib/App/Office/Contacts/Import/vCards/Controller/Initialize.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::Util::Config:
     file: lib/App/Office/Contacts/Import/vCards/Util/Config.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::Util::vCards:
     file: lib/App/Office/Contacts/Import/vCards/Util/vCards.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::View:
     file: lib/App/Office/Contacts/Import/vCards/View.pm
-    version: 1.07
+    version: 1.08
   App::Office::Contacts::Import::vCards::View::vCards:
     file: lib/App/Office/Contacts/Import/vCards/View/vCards.pm
-    version: 1.07
+    version: 1.08
 requires:
   App::Office::Contacts: 1.06
   Moose: 0.98
@@ -50,4 +50,4 @@ requires:
   namespace::autoclean: 0.09
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: 1.07
+version: 1.08

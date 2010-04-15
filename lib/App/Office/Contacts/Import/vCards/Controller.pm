@@ -10,7 +10,7 @@ use App::Office::Contacts::Import::vCards::View;
 
 use Log::Dispatch;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 # -----------------------------------------------
 
@@ -42,9 +42,10 @@ sub cgiapp_prerun
 
 	$self -> param(view => App::Office::Contacts::Import::vCards::View -> new
 	(
-		db        => $self -> param('db'),
-		session   => $self -> param('session'),
-		tmpl_path => $self -> tmpl_path,
+		db          => $self -> param('db'),
+		script_name => $self -> script_name,
+		session     => $self -> param('session'),
+		tmpl_path   => $self -> tmpl_path,
 	) );
 
 	if ($self -> validate_post == 0)
