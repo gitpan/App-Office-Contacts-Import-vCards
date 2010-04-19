@@ -6,7 +6,7 @@ use warnings;
 
 # We don't use Moose because we isa CGI::Application.
 
-our $VERSION = '1.08';
+our $VERSION = '1.09';
 
 # -----------------------------------------------
 
@@ -114,21 +114,16 @@ EJS
 
 sub display
 {
-	my($self) = @_;
+	my($self)        = @_;
+	my($cookie_name) = 'import_vcards';
 
 	$self -> log(debug => 'Entered display');
 
-	# Generate the web page itself. This is not loaded by sub cgiapp_init(),
-	# because, with AJAX, we only need it the first time the script is run.
+	return 'Invalid cookie digest' if ($self -> validate_post($cookie_name) == 0);
 
-	my($page) = $self -> load_tmpl('web.page.tmpl');
+	$self -> generate_cookie($cookie_name);
 
-	$page -> param(css_url   => ${$self -> param('config')}{'css_url'});
-	$page -> param(head_init => $self -> build_head_init);
-	$page -> param(head_js   => $self -> build_head_js);
-	$page -> param(yui_url   => ${$self -> param('config')}{'yui_url'});
-
-	return $page -> output;
+	return $self -> build_web_page;
 
 } # End of display.
 

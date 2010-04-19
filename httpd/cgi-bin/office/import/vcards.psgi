@@ -1,4 +1,12 @@
 #!/usr/bin/perl
+#
+# Run with:
+# 1)
+# Edit .htoffice.contacts.conf to change tmpl_path to /dev/shm...
+# 2) One of:
+# start_server --port=127.0.0.1:5005 -- starman --workers 1 httpd/cgi-bin/office/import/vcards.psgi &
+# or
+# plackup --host 127.0.0.1 --port 5005 httpd/cgi-bin/office/import/vcards.psgi &
 
 use strict;
 use warnings;

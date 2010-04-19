@@ -17,7 +17,7 @@ use Time::Elapsed;
 
 # We don't use Moose because we isa CGI::Application.
 
-our $VERSION = '1.08';
+our $VERSION = '1.09';
 
 # -----------------------------------------------
 
@@ -57,7 +57,7 @@ sub display
 
 	if (! $vfile_name)
 	{
-		return $self -> param('view') -> viewer -> format([{count => 'Error', name => 'No file name provided'}])
+		return $self -> param('view') -> viewer -> format([{name => 'No file name provided', status => 'Error'}])
 	}
 
 	# Build some of the progress report.

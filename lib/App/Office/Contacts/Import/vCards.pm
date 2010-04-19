@@ -3,7 +3,7 @@ package App::Office::Contacts::Import::vCards;
 use strict;
 use warnings;
 
-our $VERSION = '1.08';
+our $VERSION = '1.09';
 
 # -----------------------------------------------
 

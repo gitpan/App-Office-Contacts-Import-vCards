@@ -1,5 +1,10 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.09  Fri Apr 16  8:52:00 2010
+	- Rework cookies and POST validation, to allow Contacts, Donations and
+		Import::vCards to run in parallel.
+	- But for the moment use the disabled code in App::Office::Contacts.
+
 1.08  Thu Apr 15 14:40:00 2010
 	- Add script_name to calling parameter list of App::Office::Contacts::Import::vCards::View
 		after changes to App::Office::Contacts::View.
