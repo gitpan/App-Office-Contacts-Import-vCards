@@ -1,5 +1,12 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.10  Tue Apr 20  9:16:00 2010
+	- Change SQLite attribute from unicode to sqlite_unicode.
+	- Change the default database driver from Postgres to SQLite,
+		to make installation easier (by not requiring DBD::Pg).
+		If using another database server, you'll need to edit the 2 lines
+		in .htoffice.donations.conf which refer to SQLite.
+
 1.09  Fri Apr 16  8:52:00 2010
 	- Rework cookies and POST validation, to allow Contacts, Donations and
 		Import::vCards to run in parallel.
