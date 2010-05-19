@@ -13,15 +13,15 @@ my($builder) = Module::Build -> new
  },
  requires =>
  {
-	App::Office::Contacts   => 1.06,
-	Moose                   => 0.98,
-	namespace::autoclean    => 0.09,
-	Text::DoubleMetaphone   => 0,
-	Text::GenderFromName    => 0,
-	Text::vFile::toXML      => 0, # For importing vCards.
-	XML::Handler::YAWriter  => 0, # For xmlpretty.
-	XML::SAX::Base          => 0,
-	XML::SAX::ParserFactory => 0,
+	App::Office::Contacts  => 1.10,
+	Moose                  => 0.98,
+	namespace::autoclean   => 0.09,
+	Text::DoubleMetaphone  => 0.07,
+	Text::GenderFromName   => 0.33,
+	Text::vFile::toXML     => 0.04, # For importing vCards.
+	XML::Handler::YAWriter => 0.23, # For xmlpretty.
+	XML::SAX::Base         => 1.02,
+	XML::SAX               => 0.96, # For XML::SAX::ParserFactory.
  },
 );
 

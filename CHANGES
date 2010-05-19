@@ -1,5 +1,10 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.11  Wed May 19  11:11:00 2010
+	- Update comments re starman usage in donations.psgi.
+	- Chop mailing list stuff from support.
+	- Update version numbers in Build.PL and Makefile.PL.
+
 1.10  Tue Apr 20  9:16:00 2010
 	- Change SQLite attribute from unicode to sqlite_unicode.
 	- Change the default database driver from Postgres to SQLite,

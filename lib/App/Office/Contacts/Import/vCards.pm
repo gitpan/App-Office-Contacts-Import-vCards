@@ -3,7 +3,7 @@ package App::Office::Contacts::Import::vCards;
 use strict;
 use warnings;
 
-our $VERSION = '1.10';
+our $VERSION = '1.11';
 
 # -----------------------------------------------
 
@@ -147,18 +147,9 @@ of data. This means neither of these 2 values are guaranteed to be correct.
 
 =head1 Support
 
-Log bug reports with RT.
+Email the author, or log a bug on RT:
 
-The mailing list details are:
-
-	Mail list: cgi-office@X
-	Help address: cgi-office-help@X
-	Subscription address: cgi-office-subscribe@X
-	Unsubscription address: cgi-office-unsubscribe@X
-
-where X is as per my email address at the bottom of my home page (below).
-
-On-line help for ezmlm: http://www.ezmlm.org/manual/
+https://rt.cpan.org/Public/Dist/Display.html?Name=App-Office-Contacts-Import-vCards
 
 =head1 Author
 
