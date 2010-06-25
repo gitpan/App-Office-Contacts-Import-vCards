@@ -1,5 +1,8 @@
 Revision history for Perl extension App::Office::Contacts::Import::vCards.
 
+1.12  Fri Jun 25 11:15:00 2010
+	- Change all JSON::XS->new->encode(...) to JSON::XS->new->utf8->encode(...).
+
 1.11  Wed May 19  11:11:00 2010
 	- Update comments re starman usage in donations.psgi.
 	- Chop mailing list stuff from support.

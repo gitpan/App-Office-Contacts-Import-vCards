@@ -8,7 +8,7 @@ extends 'App::Office::Contacts::View::Base';
 
 use namespace::autoclean;
 
-our $VERSION = '1.11';
+our $VERSION = '1.12';
 
 # -----------------------------------------------
 
@@ -64,7 +64,7 @@ sub format
 
 	$self -> log(debug => 'Entered format');
 
-	return JSON::XS -> new -> encode({results => [@$output]});
+	return JSON::XS -> new -> utf8 -> encode({results => [@$output]});
 
 } # End of format.
 
